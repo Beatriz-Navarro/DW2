@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import {Route, Routes} from 'react-router-dom'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Rodape from './componentes/Rodape'
+import Cabecalho from './componentes/Cabecalho'
+import Home from './componentes/Home'
+import Cardapio from './componentes/Cardapio'
+import Eventos from './componentes/Eventos'
+import Unidades from './componentes/Unidades'
+import Contato from './componentes/Contato'
+
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <Cabecalho />
+        <Routes>
+          <Route exact path='/' element={<Home/>}/>
+          <Route path='/cardapio' element={<Cardapio/>}/>
+          <Route path='/eventos' element={<Eventos/>}/>
+          <Route path='/precos' element={<Unidades/>}/>
+          <Route path='/contato' element={<Contato/>}/>
+        </Routes>
+        <Rodape />
+      </div>
+    );
+  }
 }
 
 export default App;
